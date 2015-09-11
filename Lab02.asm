@@ -45,7 +45,7 @@ step4a
         idiv          ;  divides D/X quotient in X remainder in D
         stx     quot  ;  stores quotient in quot
         std     remain;  stores remainder in remain
-	      stop	        ;  breakpoint here
+        stop          ;  breakpoint here
 
 ops    	rmb	4
 quot  	rmb	2
@@ -67,7 +67,7 @@ step4b
  
 ; Put your code here	
         cmpa    tval          ;  compares value of A register with tval
-        bgt     code1         ;  branch if grather than, go to code 1 segment
+        bhi     code1         ;  branch if grather than for unsigned numbers, go to code 1 segment
         ble     code2         ;  branch if lesser than or equal to, go to code 2
         
 code1   movb    #$FF, higher  ;  moves $FF into higher
@@ -75,9 +75,9 @@ code1   movb    #$FF, higher  ;  moves $FF into higher
           
 code2   movb    #$00, higher  ;  moves $00 into higher
 
-done  	stop	                ;  breakpoint here
+done  	stop	              ;  breakpoint here
 
-tval	fcb	100                 ;  note: this is 100 in base 10
+tval	fcb	100           ;  note: this is 100 in base 10
 higher	rmb	1
 
 
@@ -116,15 +116,15 @@ step4c
         
         ldaa     adds    ;  loads A register with 1st byte of 1st #
         adca     adds+3  ;  adds A with 1st byte of 2nd register in A
-        staa      sum    ;  stores added value in 1st byte of sum
+        staa     sum     ;  stores added value in 1st byte of sum
         
         pula             ;  pulls A register from stack
         
-	      stop	           ; use this location to set breakpoint
+	stop             ; use this location to set breakpoint
 
-	      org	$0870
-adds	  rmb	6	           ; Addends 
-sum	    rmb	3	           ; Sum
+	org	$0870
+adds	rmb	6	 ; Addends 
+sum	rmb	3	 ; Sum
 
  
 ;*******************************************************************************
@@ -176,7 +176,7 @@ loop
         pulb             ;  pulls B register from stack
         pula             ;  pulls A register from stack
 
-        stop	           ;  use this location to set breakpoint
+        stop	         ;  use this location to set breakpoint
 
 ;***********************************************************************
 ; Step 4-E:
@@ -219,7 +219,7 @@ loop1
         rola             ;  rotates a to left
         adcb   #$0
 
-        dbne   x,loop1  ;        
+        dbne   x,loop1   ;        
         
         stab   count
         
@@ -227,7 +227,7 @@ loop1
         pulb             ;  pulls B register from stack
         pula             ;  pulls A register from stack
 	      
-	      stop	; breakpoint here
+	stop	  	 ; breakpoint here
 
 count	  rmb	1  ; number of 1's
 

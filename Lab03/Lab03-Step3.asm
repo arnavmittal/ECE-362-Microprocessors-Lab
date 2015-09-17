@@ -71,8 +71,8 @@ loop1
               adcb   #$0          ;  Adds with carry to B register
               dbne   y,loop1      ;  Decrements Y register by 1, if Y!=0 => loop1
 	            
-	            pula                ;  Pulls Y register's H byte into A register
-	            eora   1,sp        ;  XORs X_H and Y_H and result goes to A
+	      pula                ;  Pulls Y register's H byte into A register
+	      eora   1,sp         ;  XORs X_H and Y_H and result goes to A
               
               
               ldy    #$8          ;  Loads Y register with loop counter
@@ -82,9 +82,9 @@ loop2
               adcb   #$0          ;  Adds with carry to B register
               dbne   y,loop2      ;  Decrements Y register by 1, if Y!=0 => loop1	            
 	            
-	            puly
+	      puly
 	            
 	            
-	            rts
+	      rts
 
-	            end
+	      end

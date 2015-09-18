@@ -117,6 +117,10 @@ loop_check      print   "Enter number: "
       	        jsr     pmsg
       	        fcb     LF
       	        fcb     NULL
+      	        
+      	        cmpa    #$30
+      	        beq     loop_error
+      	        
       	        cmpa    #$39
       	        bhi     loop_error     
       	        ble     loop_progress

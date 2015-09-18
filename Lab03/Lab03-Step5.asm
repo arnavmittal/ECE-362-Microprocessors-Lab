@@ -1,10 +1,10 @@
 ; ECE 362 Lab 3 - Fall 2014 - Step 5
 
-; Name: < enter name here >
+; Name: Arnav Mittal
 
-; Lab: < enter lab division here >
+; Lab: #9
 
-; Class Number: < enter class number here >
+; Class Number: 8153-M
 
 ; Use Code Warrior (CW) in Full Chip Simulation mode
 
@@ -96,7 +96,7 @@ loop_print      jsr     outchar       ;  Prints the first character onto the scr
 ;***********************************************************************
 
       	        org	$0900
-main 	          lds	#$1000	        ; initialize SP
+main 	        lds	#$1000	        ; initialize SP
               	jsr	sinit 	        ; initialize serial port
 
 mloop			                          ; main loop
@@ -126,14 +126,14 @@ loop_check      print   "Enter number: "
       	        ble     loop_progress
       	        
 loop_error      print   "*** ERROR *** Invalid number"
-                ;print   \n
+                ;print  \n
                 bra     mloop      	        
       	        
 loop_progress   suba    #$30
       	        tfr     a,b
       	        pula
                 jsr     nchars
-      	        jmp	    mloop	      ; continue execution until process is terminated
+      	        jmp	mloop	      ; continue execution until process is terminated
 
 
 
